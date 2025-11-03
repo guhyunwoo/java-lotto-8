@@ -7,13 +7,17 @@ import java.util.List;
 
 public class LottoController {
     public void run() {
-        int purchaseAmount = getPurchaseAmount();
-        Lottos lottos = issueLottos(purchaseAmount);
-        WinningNumbers winningNumbers = getWinningNumbers();
-        LottoRankResult result = matchLottos(lottos, winningNumbers);
-        double profitRate = calculateProfitRate(purchaseAmount, result.getProfit());
+        try {
+            int purchaseAmount = getPurchaseAmount();
+            Lottos lottos = issueLottos(purchaseAmount);
+            WinningNumbers winningNumbers = getWinningNumbers();
+            LottoRankResult result = matchLottos(lottos, winningNumbers);
+            double profitRate = calculateProfitRate(purchaseAmount, result.getProfit());
 
-        showResults(result, profitRate);
+            showResults(result, profitRate);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private int getPurchaseAmount() {

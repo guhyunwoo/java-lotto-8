@@ -14,6 +14,9 @@ public class Lotto {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
         }
+        if (numbers.size() != numbers.stream().distinct().count()) {
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 중복될 수 없습니다.");
+        }
     }
 
     public Lotto sort() {
@@ -30,7 +33,6 @@ public class Lotto {
             if (winningNumbers.isWinningNumbersContainsNumber(number)) {
                 matchCount++;
             } else if (winningNumbers.isBonusNumberEquals(number)) {
-                matchCount++;
                 isContainsBonusNumber = true;
             }
         }
