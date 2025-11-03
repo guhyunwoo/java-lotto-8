@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import lotto.error.ErrorMessage;
 import lotto.util.converter.StringToIntegerConverter;
 import lotto.util.converter.CSVToIntegerListConverter;
 import lotto.view.InputMessage;
@@ -21,5 +22,11 @@ public class InputHandler {
     public static int handleBonusNumberInput() {
         String input = InputView.read(InputMessage.BONUS_NUMBER);
         return StringToIntegerConverter.convert(input);
+    }
+
+    private void validateInput(String input) {
+        if(input == null || input.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT.content);
+        }
     }
 }
