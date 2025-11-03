@@ -19,5 +19,6 @@ public class LottoController {
         LottoRankResult result = lottos.match(winningNumbers);
         OutputView.showResultResponse(result);
         double profit = ProfitRateCalculator.calculate(purchaseAmount, result.getProfit());
+        OutputView.showProfitRateResponse(profit);
     }
 }

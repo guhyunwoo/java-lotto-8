@@ -34,4 +34,8 @@ public class OutputView {
                 lottoRankResult.getLottoRanksCount(LottoRank.FIRST)
         );
     }
+
+    public static void showProfitRateResponse(double profit) {
+        System.out.printf(OutputMessage.PROFIT_RATE.content, profit);
+    }
 }
