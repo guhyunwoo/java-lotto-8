@@ -22,4 +22,9 @@ public class Lotto {
                 .toList();
         return new Lotto(sorted);
     }
+
+    @Override
+    public String toString() {
+        return numbers.toString();
+    }
 }

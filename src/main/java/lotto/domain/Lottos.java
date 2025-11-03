@@ -1,9 +1,10 @@
 package lotto.domain;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Lottos {
+public class Lottos implements Iterable<Lotto> {
     private final List<Lotto> lottos;
 
     private Lottos(List<Lotto> lottos) {
@@ -20,5 +21,10 @@ public class Lottos {
 
     private static Lotto generateOneSortedLotto() {
         return new Lotto(RandomNumber.generateLottoNumbers()).sort();
+    }
+
+    @Override
+    public Iterator<Lotto> iterator() {
+        return lottos.iterator();
     }
 }

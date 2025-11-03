@@ -10,5 +10,6 @@ public class LottoController {
         int numberOfTickets = NumberOfTicketsExtractor.extract(purchaseAmount);
         OutputView.showNumberOfTicketsResponse(numberOfTickets);
         Lottos lottos = Lottos.issue(numberOfTickets);
+        OutputView.showLottosResponse(lottos);
     }
 }
