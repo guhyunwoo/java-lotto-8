@@ -1,5 +1,6 @@
 package domain;
 
+import lotto.domain.NumberOfTicketsExtractor;
 import lotto.error.ErrorMessage;
 import org.junit.jupiter.api.Test;
 
