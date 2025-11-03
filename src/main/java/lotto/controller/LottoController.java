@@ -17,5 +17,6 @@ public class LottoController {
         int bonusNumberInput = InputHandler.handleBonusNumberInput();
         WinningNumbers winningNumbers = new WinningNumbers(winningNumbersInput, bonusNumberInput);
         LottoRankResult result = lottos.match(winningNumbers);
+        OutputView.showResultResponse(result);
     }
 }
