@@ -13,12 +13,12 @@ public class Lottos {
     public static Lottos issue(int numberOfLottos) {
         List<Lotto> lottos = new ArrayList<>();
         for (int i = 0; i < numberOfLottos; i++) {
-            lottos.add(generateOneLotto());
+            lottos.add(generateOneSortedLotto());
         }
         return new Lottos(lottos);
     }
 
-    private static Lotto generateOneLotto() {
-        return new Lotto(RandomNumber.generateLottoNumbers());
+    private static Lotto generateOneSortedLotto() {
+        return new Lotto(RandomNumber.generateLottoNumbers()).sort();
     }
 }
