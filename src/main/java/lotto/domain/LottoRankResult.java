@@ -19,4 +19,12 @@ public class LottoRankResult {
         });
         return count.get();
     }
+
+    public int getProfit() {
+        AtomicInteger profit = new AtomicInteger();
+        lottoRanks.forEach(lottoRank -> {
+            profit.addAndGet(lottoRank.getReward());
+        });
+        return profit.get();
+    }
 }
