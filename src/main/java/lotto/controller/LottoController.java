@@ -1,8 +1,6 @@
 package lotto.controller;
 
-import lotto.domain.Lottos;
-import lotto.domain.NumberOfTicketsExtractor;
-import lotto.domain.WinningNumbers;
+import lotto.domain.*;
 import lotto.view.OutputView;
 
 import java.util.List;
@@ -18,5 +16,6 @@ public class LottoController {
         List<Integer> winningNumbersInput = InputHandler.handleWinningNumbersInput();
         int bonusNumberInput = InputHandler.handleBonusNumberInput();
         WinningNumbers winningNumbers = new WinningNumbers(winningNumbersInput, bonusNumberInput);
+        LottoRankResult result = lottos.match(winningNumbers);
     }
 }

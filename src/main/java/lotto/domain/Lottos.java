@@ -23,6 +23,13 @@ public class Lottos implements Iterable<Lotto> {
         return new Lotto(RandomNumber.generateLottoNumbers()).sort();
     }
 
+    public LottoRankResult match(WinningNumbers winningNumbers) {
+        List<LottoRank> lottoRanks = lottos.stream()
+                .map(lotto -> lotto.match(winningNumbers))
+                .toList();
+        return new LottoRankResult(lottoRanks);
+    }
+
     @Override
     public Iterator<Lotto> iterator() {
         return lottos.iterator();

@@ -23,6 +23,20 @@ public class Lotto {
         return new Lotto(sorted);
     }
 
+    public LottoRank match(WinningNumbers winningNumbers) {
+        int matchCount = 0;
+        boolean isContainsBonusNumber = false;
+        for (int number : numbers) {
+            if (winningNumbers.isWinningNumbersContainsNumber(number)) {
+                matchCount++;
+            } else if (winningNumbers.isBonusNumberEquals(number)) {
+                matchCount++;
+                isContainsBonusNumber = true;
+            }
+        }
+        return LottoRank.valueOf(matchCount, isContainsBonusNumber);
+    }
+
     @Override
     public String toString() {
         return numbers.toString();
